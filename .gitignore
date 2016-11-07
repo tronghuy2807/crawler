@@ -1,0 +1,12 @@
+.idea/
+gen/
+*.iml
+out/
+*.class
+target
+logs/
+release/
+*.csv
+*.gz
+*.bck
+*.log
