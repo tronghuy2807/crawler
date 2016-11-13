@@ -18,7 +18,7 @@ import java.util.Set;
  */
 public class Main {
     public static void main(String[] args) throws IOException {
-        String path = "data/thethao";
+        String path = "data/phapluat";
         FileWriter fw = new FileWriter(path,true);
         BufferedWriter bw = new BufferedWriter(fw);
 
@@ -29,9 +29,9 @@ public class Main {
             String url ="";
 
             if(i!=1){
-                url = "http://dantri.com.vn/the-thao/trang-"+i+".htm";
+                url = "http://dantri.com.vn/phap-luat/trang-"+i+".htm";
             }else {
-                url = "http://dantri.com.vn/the-thao.htm";
+                url = "http://dantri.com.vn/phap-luat.htm";
             }
             print("Fetching %s...", url);
 
@@ -39,7 +39,6 @@ public class Main {
             Elements links = doc.select("a[href]");
             for (Element l : links) {
                 String s = l.ownText();
-                System.out.println("xxx");
             }
 //        Elements imports = doc.select("link[href]");
 
@@ -61,7 +60,7 @@ public class Main {
             }
 
             for (String slink : dkmHiep) {
-                if (slink.contains(".htm") && slink.contains("the-thao/")) {
+                if (slink.contains(".htm") && slink.contains("phap-luat/")) {
                     Document doc1 = Jsoup.connect(slink).get();
                     String description = doc1.select("meta[name=description]").get(0).attr("content");
                     Elements content = doc1.select("p");
